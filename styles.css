@@ -21,10 +21,13 @@ main {
 }
 
 main h2 {
+  max-width: 500px;
   color: white;
   font-family: sans-serif;
   font-size: 1.3rem;
-  line-height: 250%;
+  line-height: 150%;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 #container {
@@ -35,7 +38,6 @@ main h2 {
 }
 
 #inputBox {
-
 }
 
 #inputBox input[name="fullName"] {
@@ -46,14 +48,14 @@ main h2 {
   font-size: 1rem;
 }
 
-#menu{
+#menu {
   width: 100%;
   background-color: white;
   display: flex;
 }
 
 #inputBox input[type="submit"] {
-  width: 50%;
+  width: calc(100% / 3);
   border: none;
   outline: none;
   cursor: pointer;
@@ -64,8 +66,8 @@ main h2 {
   padding: 10px;
 }
 
-select{
-  width: 50%;
+select {
+  width: calc(100% / 3);
   border: none;
   background-color: brown;
   color: white;
