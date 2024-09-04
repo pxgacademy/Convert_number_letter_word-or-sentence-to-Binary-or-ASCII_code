@@ -1,6 +1,5 @@
 // Letter	ASCII Code
 
-/*
 const smallLetterASCII = {
   a: "097",
   b: "098",
@@ -58,7 +57,6 @@ const capitalLetterASCII = {
   Y: "089",
   Z: "090",
 };
-*/
 
 // Letter Binary code
 const smallLetterBinary = {
@@ -122,169 +120,335 @@ const capitalLetterBinary = {
 let output = document.querySelector('textarea[id="outputBox"]');
 let submit = document.querySelector('input[value="Submit"]');
 let fullName = document.querySelector('input[type="text"]');
+let selectOptions = document.querySelector('select[name="selectOptions"]');
+
 let binaryName = "";
 
 submit.addEventListener("click", () => {
   binaryName = "";
-  for (ltr of fullName.value) {
-    if (ltr === " ") {
-      binaryName += " ";
+  if (selectOptions.value === "Binary") {
+    for (ltr of fullName.value) {
+      if (ltr === " ") {
+        binaryName += " ";
+      }
+      if (ltr === "A") {
+        binaryName += capitalLetterBinary["A"];
+      }
+      if (ltr === "B") {
+        binaryName += capitalLetterBinary["B"];
+      }
+      if (ltr === "C") {
+        binaryName += capitalLetterBinary["C"];
+      }
+      if (ltr === "D") {
+        binaryName += capitalLetterBinary["D"];
+      }
+      if (ltr === "E") {
+        binaryName += capitalLetterBinary["E"];
+      }
+      if (ltr === "F") {
+        binaryName += capitalLetterBinary["F"];
+      }
+      if (ltr === "G") {
+        binaryName += capitalLetterBinary["G"];
+      }
+      if (ltr === "H") {
+        binaryName += capitalLetterBinary["H"];
+      }
+      if (ltr === "I") {
+        binaryName += capitalLetterBinary["I"];
+      }
+      if (ltr === "J") {
+        binaryName += capitalLetterBinary["J"];
+      }
+      if (ltr === "K") {
+        binaryName += capitalLetterBinary["K"];
+      }
+      if (ltr === "L") {
+        binaryName += capitalLetterBinary["L"];
+      }
+      if (ltr === "M") {
+        binaryName += capitalLetterBinary["M"];
+      }
+      if (ltr === "N") {
+        binaryName += capitalLetterBinary["N"];
+      }
+      if (ltr === "O") {
+        binaryName += capitalLetterBinary["O"];
+      }
+      if (ltr === "P") {
+        binaryName += capitalLetterBinary["P"];
+      }
+      if (ltr === "Q") {
+        binaryName += capitalLetterBinary["Q"];
+      }
+      if (ltr === "R") {
+        binaryName += capitalLetterBinary["R"];
+      }
+      if (ltr === "S") {
+        binaryName += capitalLetterBinary["S"];
+      }
+      if (ltr === "T") {
+        binaryName += capitalLetterBinary["T"];
+      }
+      if (ltr === "U") {
+        binaryName += capitalLetterBinary["U"];
+      }
+      if (ltr === "V") {
+        binaryName += capitalLetterBinary["V"];
+      }
+      if (ltr === "W") {
+        binaryName += capitalLetterBinary["W"];
+      }
+      if (ltr === "X") {
+        binaryName += capitalLetterBinary["X"];
+      }
+      if (ltr === "Y") {
+        binaryName += capitalLetterBinary["Y"];
+      }
+      if (ltr === "Z") {
+        binaryName += capitalLetterBinary["Z"];
+      }
+      if (ltr === "a") {
+        binaryName += smallLetterBinary["a"];
+      }
+      if (ltr === "b") {
+        binaryName += smallLetterBinary["b"];
+      }
+      if (ltr === "c") {
+        binaryName += smallLetterBinary["c"];
+      }
+      if (ltr === "d") {
+        binaryName += smallLetterBinary["d"];
+      }
+      if (ltr === "e") {
+        binaryName += smallLetterBinary["e"];
+      }
+      if (ltr === "f") {
+        binaryName += smallLetterBinary["f"];
+      }
+      if (ltr === "g") {
+        binaryName += smallLetterBinary["g"];
+      }
+      if (ltr === "h") {
+        binaryName += smallLetterBinary["h"];
+      }
+      if (ltr === "i") {
+        binaryName += smallLetterBinary["i"];
+      }
+      if (ltr === "j") {
+        binaryName += smallLetterBinary["j"];
+      }
+      if (ltr === "k") {
+        binaryName += smallLetterBinary["k"];
+      }
+      if (ltr === "l") {
+        binaryName += smallLetterBinary["l"];
+      }
+      if (ltr === "m") {
+        binaryName += smallLetterBinary["m"];
+      }
+      if (ltr === "n") {
+        binaryName += smallLetterBinary["n"];
+      }
+      if (ltr === "o") {
+        binaryName += smallLetterBinary["o"];
+      }
+      if (ltr === "p") {
+        binaryName += smallLetterBinary["p"];
+      }
+      if (ltr === "q") {
+        binaryName += smallLetterBinary["q"];
+      }
+      if (ltr === "r") {
+        binaryName += smallLetterBinary["r"];
+      }
+      if (ltr === "s") {
+        binaryName += smallLetterBinary["s"];
+      }
+      if (ltr === "t") {
+        binaryName += smallLetterBinary["t"];
+      }
+      if (ltr === "u") {
+        binaryName += smallLetterBinary["u"];
+      }
+      if (ltr === "v") {
+        binaryName += smallLetterBinary["v"];
+      }
+      if (ltr === "w") {
+        binaryName += smallLetterBinary["w"];
+      }
+      if (ltr === "x") {
+        binaryName += smallLetterBinary["x"];
+      }
+      if (ltr === "y") {
+        binaryName += smallLetterBinary["y"];
+      }
+      if (ltr === "z") {
+        binaryName += smallLetterBinary["z"];
+      }
     }
-    if (ltr === "A") {
-      binaryName += capitalLetterBinary["A"];
-    }
-    if (ltr === "B") {
-      binaryName += capitalLetterBinary["B"];
-    }
-    if (ltr === "C") {
-      binaryName += capitalLetterBinary["C"];
-    }
-    if (ltr === "D") {
-      binaryName += capitalLetterBinary["D"];
-    }
-    if (ltr === "E") {
-      binaryName += capitalLetterBinary["E"];
-    }
-    if (ltr === "F") {
-      binaryName += capitalLetterBinary["F"];
-    }
-    if (ltr === "G") {
-      binaryName += capitalLetterBinary["G"];
-    }
-    if (ltr === "H") {
-      binaryName += capitalLetterBinary["H"];
-    }
-    if (ltr === "I") {
-      binaryName += capitalLetterBinary["I"];
-    }
-    if (ltr === "J") {
-      binaryName += capitalLetterBinary["J"];
-    }
-    if (ltr === "K") {
-      binaryName += capitalLetterBinary["K"];
-    }
-    if (ltr === "L") {
-      binaryName += capitalLetterBinary["L"];
-    }
-    if (ltr === "M") {
-      binaryName += capitalLetterBinary["M"];
-    }
-    if (ltr === "N") {
-      binaryName += capitalLetterBinary["N"];
-    }
-    if (ltr === "O") {
-      binaryName += capitalLetterBinary["O"];
-    }
-    if (ltr === "P") {
-      binaryName += capitalLetterBinary["P"];
-    }
-    if (ltr === "Q") {
-      binaryName += capitalLetterBinary["Q"];
-    }
-    if (ltr === "R") {
-      binaryName += capitalLetterBinary["R"];
-    }
-    if (ltr === "S") {
-      binaryName += capitalLetterBinary["S"];
-    }
-    if (ltr === "T") {
-      binaryName += capitalLetterBinary["T"];
-    }
-    if (ltr === "U") {
-      binaryName += capitalLetterBinary["U"];
-    }
-    if (ltr === "V") {
-      binaryName += capitalLetterBinary["V"];
-    }
-    if (ltr === "W") {
-      binaryName += capitalLetterBinary["W"];
-    }
-    if (ltr === "X") {
-      binaryName += capitalLetterBinary["X"];
-    }
-    if (ltr === "Y") {
-      binaryName += capitalLetterBinary["Y"];
-    }
-    if (ltr === "Z") {
-      binaryName += capitalLetterBinary["Z"];
-    }
-    if (ltr === "a") {
-      binaryName += smallLetterBinary["a"];
-    }
-    if (ltr === "b") {
-      binaryName += smallLetterBinary["b"];
-    }
-    if (ltr === "c") {
-      binaryName += smallLetterBinary["c"];
-    }
-    if (ltr === "d") {
-      binaryName += smallLetterBinary["d"];
-    }
-    if (ltr === "e") {
-      binaryName += smallLetterBinary["e"];
-    }
-    if (ltr === "f") {
-      binaryName += smallLetterBinary["f"];
-    }
-    if (ltr === "g") {
-      binaryName += smallLetterBinary["g"];
-    }
-    if (ltr === "h") {
-      binaryName += smallLetterBinary["h"];
-    }
-    if (ltr === "i") {
-      binaryName += smallLetterBinary["i"];
-    }
-    if (ltr === "j") {
-      binaryName += smallLetterBinary["j"];
-    }
-    if (ltr === "k") {
-      binaryName += smallLetterBinary["k"];
-    }
-    if (ltr === "l") {
-      binaryName += smallLetterBinary["l"];
-    }
-    if (ltr === "m") {
-      binaryName += smallLetterBinary["m"];
-    }
-    if (ltr === "n") {
-      binaryName += smallLetterBinary["n"];
-    }
-    if (ltr === "o") {
-      binaryName += smallLetterBinary["o"];
-    }
-    if (ltr === "p") {
-      binaryName += smallLetterBinary["p"];
-    }
-    if (ltr === "q") {
-      binaryName += smallLetterBinary["q"];
-    }
-    if (ltr === "r") {
-      binaryName += smallLetterBinary["r"];
-    }
-    if (ltr === "s") {
-      binaryName += smallLetterBinary["s"];
-    }
-    if (ltr === "t") {
-      binaryName += smallLetterBinary["t"];
-    }
-    if (ltr === "u") {
-      binaryName += smallLetterBinary["u"];
-    }
-    if (ltr === "v") {
-      binaryName += smallLetterBinary["v"];
-    }
-    if (ltr === "w") {
-      binaryName += smallLetterBinary["w"];
-    }
-    if (ltr === "x") {
-      binaryName += smallLetterBinary["x"];
-    }
-    if (ltr === "y") {
-      binaryName += smallLetterBinary["y"];
-    }
-    if (ltr === "z") {
-      binaryName += smallLetterBinary["z"];
+  } else {
+    for (ltr of fullName.value) {
+      if (ltr === " ") {
+        binaryName += " ";
+      }
+      if (ltr === "A") {
+        binaryName += capitalLetterASCII["A"];
+      }
+      if (ltr === "B") {
+        binaryName += capitalLetterASCII["B"];
+      }
+      if (ltr === "C") {
+        binaryName += capitalLetterASCII["C"];
+      }
+      if (ltr === "D") {
+        binaryName += capitalLetterASCII["D"];
+      }
+      if (ltr === "E") {
+        binaryName += capitalLetterASCII["E"];
+      }
+      if (ltr === "F") {
+        binaryName += capitalLetterASCII["F"];
+      }
+      if (ltr === "G") {
+        binaryName += capitalLetterASCII["G"];
+      }
+      if (ltr === "H") {
+        binaryName += capitalLetterASCII["H"];
+      }
+      if (ltr === "I") {
+        binaryName += capitalLetterASCII["I"];
+      }
+      if (ltr === "J") {
+        binaryName += capitalLetterASCII["J"];
+      }
+      if (ltr === "K") {
+        binaryName += capitalLetterASCII["K"];
+      }
+      if (ltr === "L") {
+        binaryName += capitalLetterASCII["L"];
+      }
+      if (ltr === "M") {
+        binaryName += capitalLetterASCII["M"];
+      }
+      if (ltr === "N") {
+        binaryName += capitalLetterASCII["N"];
+      }
+      if (ltr === "O") {
+        binaryName += capitalLetterASCII["O"];
+      }
+      if (ltr === "P") {
+        binaryName += capitalLetterASCII["P"];
+      }
+      if (ltr === "Q") {
+        binaryName += capitalLetterASCII["Q"];
+      }
+      if (ltr === "R") {
+        binaryName += capitalLetterASCII["R"];
+      }
+      if (ltr === "S") {
+        binaryName += capitalLetterASCII["S"];
+      }
+      if (ltr === "T") {
+        binaryName += capitalLetterASCII["T"];
+      }
+      if (ltr === "U") {
+        binaryName += capitalLetterASCII["U"];
+      }
+      if (ltr === "V") {
+        binaryName += capitalLetterASCII["V"];
+      }
+      if (ltr === "W") {
+        binaryName += capitalLetterASCII["W"];
+      }
+      if (ltr === "X") {
+        binaryName += capitalLetterASCII["X"];
+      }
+      if (ltr === "Y") {
+        binaryName += capitalLetterASCII["Y"];
+      }
+      if (ltr === "Z") {
+        binaryName += capitalLetterASCII["Z"];
+      }
+      if (ltr === "a") {
+        binaryName += smallLetterASCII["a"];
+      }
+      if (ltr === "b") {
+        binaryName += smallLetterASCII["b"];
+      }
+      if (ltr === "c") {
+        binaryName += smallLetterASCII["c"];
+      }
+      if (ltr === "d") {
+        binaryName += smallLetterASCII["d"];
+      }
+      if (ltr === "e") {
+        binaryName += smallLetterASCII["e"];
+      }
+      if (ltr === "f") {
+        binaryName += smallLetterASCII["f"];
+      }
+      if (ltr === "g") {
+        binaryName += smallLetterASCII["g"];
+      }
+      if (ltr === "h") {
+        binaryName += smallLetterASCII["h"];
+      }
+      if (ltr === "i") {
+        binaryName += smallLetterASCII["i"];
+      }
+      if (ltr === "j") {
+        binaryName += smallLetterASCII["j"];
+      }
+      if (ltr === "k") {
+        binaryName += smallLetterASCII["k"];
+      }
+      if (ltr === "l") {
+        binaryName += smallLetterASCII["l"];
+      }
+      if (ltr === "m") {
+        binaryName += smallLetterASCII["m"];
+      }
+      if (ltr === "n") {
+        binaryName += smallLetterASCII["n"];
+      }
+      if (ltr === "o") {
+        binaryName += smallLetterASCII["o"];
+      }
+      if (ltr === "p") {
+        binaryName += smallLetterASCII["p"];
+      }
+      if (ltr === "q") {
+        binaryName += smallLetterASCII["q"];
+      }
+      if (ltr === "r") {
+        binaryName += smallLetterASCII["r"];
+      }
+      if (ltr === "s") {
+        binaryName += smallLetterASCII["s"];
+      }
+      if (ltr === "t") {
+        binaryName += smallLetterASCII["t"];
+      }
+      if (ltr === "u") {
+        binaryName += smallLetterASCII["u"];
+      }
+      if (ltr === "v") {
+        binaryName += smallLetterASCII["v"];
+      }
+      if (ltr === "w") {
+        binaryName += smallLetterASCII["w"];
+      }
+      if (ltr === "x") {
+        binaryName += smallLetterASCII["x"];
+      }
+      if (ltr === "y") {
+        binaryName += smallLetterASCII["y"];
+      }
+      if (ltr === "z") {
+        binaryName += smallLetterASCII["z"];
+      }
     }
   }
   output.value = binaryName;
