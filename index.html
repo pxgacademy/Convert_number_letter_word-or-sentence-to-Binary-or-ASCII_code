@@ -3,37 +3,115 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Name to Binary</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <title>Binary Calculator</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
   </head>
   <body>
     <main>
-      <h2>Convert any number, letter, word or sentence to Binary or ASCII code</h2>
-      <div id="container">
-        <div id="inputBox">
-          <input
-            type="text"
-            name="fullName"
-            id="fullName"
-            placeholder="Type the number, letter, word or sentence"
-          />
-          <div id="menu">
-            <input type="submit" value="Submit" />
-            <select name="selectOptions1" id="selectOptions1">
-              <option value="Binary">Binary</option>
-              <option value="ASCII">ASCII</option>
-            </select>
-            <select name="selectOptions2" id="selectOptions2">
-              <option value="Number">Number</option>
-              <option value="Text">Text</option>
-            </select>
-          </div>
-        </div>
-        <div id="outputBoxx">
-          <textarea name="outputBox" id="outputBox" disabled></textarea>
-        </div>
+      <!-- Title -->
+      <div class="title">
+        <h2>
+          Convert any number, letter, word or sentence to Binary or ASCII code
+        </h2>
       </div>
+
+      <!-- Decimal to Binary and Binary to Decimal-->
+      <section class="main_container display-s-b gap-40">
+        <!-- Decimal to Binary -->
+        <div class="container">
+          <h2>Convert decimal number to Binary</h2>
+          <div class="display-s-b">
+            <textarea
+              class="textareaInput"
+              name="DtoB-input"
+              id="DtoB-input"
+              inputmode="numeric"
+              placeholder="Type the decimal number"
+            ></textarea>
+            <input type="submit" value="Convert" name="DtoB_submit" />
+          </div>
+          <textarea
+            class="textareaOutput"
+            name="DtoB-output"
+            id="DtoB-output"
+            placeholder="Output will be here"
+            disabled
+          ></textarea>
+        </div>
+
+        <!-- Binary to Decimal -->
+        <div class="container">
+          <h2>Convert Binary to decimal number</h2>
+          <div class="display-s-b">
+            <textarea
+              class="textareaInput"
+              name="BtoD-input"
+              id="BtoD-input"
+              inputmode="numeric"
+              placeholder="Type the Binary number"
+            ></textarea>
+            <input type="submit" value="Convert" name="BtoD_submit" />
+          </div>
+          <textarea
+            class="textareaOutput"
+            name="BtoD-output"
+            id="BtoD-output"
+            placeholder="Output will be here"
+            disabled
+          ></textarea>
+        </div>
+      </section>
+
+      <!-- Decimal to Octal and Octal to Decimal-->
+      <section class="main_container display-s-b gap-40">
+        <!-- Decimal to Octal -->
+        <div class="container">
+          <h2>Convert decimal number to Octal</h2>
+          <div class="display-s-b">
+            <textarea
+              class="textareaInput"
+              name="DtoO-input"
+              id="DtoO-input"
+              inputmode="numeric"
+              placeholder="Type the decimal number"
+            ></textarea>
+            <input type="submit" value="Convert" name="DtoO_submit" />
+          </div>
+          <textarea
+            class="textareaOutput"
+            name="DtoO-output"
+            id="DtoO-output"
+            placeholder="Output will be here"
+            disabled
+          ></textarea>
+        </div>
+
+        <!-- Octal to Decimal -->
+        <div class="container">
+          <h2>Convert Octal to decimal number</h2>
+          <div class="display-s-b">
+            <textarea
+              class="textareaInput"
+              name="OtoD-input"
+              id="OtoD-input"
+              inputmode="numeric"
+              placeholder="Type the Octal number"
+            ></textarea>
+            <input type="submit" value="Convert" name="OtoD_submit" />
+          </div>
+          <textarea
+            class="textareaOutput"
+            name="OtoD-output"
+            id="OtoD-output"
+            placeholder="Output will be here"
+            disabled
+          ></textarea>
+        </div>
+      </section>
     </main>
-    <script src="./script.js"></script>
+
+    <!-- JavaScript -->
+    <script src="./js/script.js"></script>
+    <script src="./js/test.js"></script>
   </body>
 </html>

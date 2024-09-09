@@ -1,5 +1,4 @@
 // Letter	ASCII Code
-
 const smallLetterASCII = {
   a: "097",
   b: "098",
@@ -117,37 +116,35 @@ const capitalLetterBinary = {
   Z: "01011010",
 };
 
-
 let output = document.querySelector('textarea[id="outputBox"]');
 let submit = document.querySelector('input[value="Submit"]');
 let inputValue = document.querySelector('input[type="text"]');
 let selectOptions = document.querySelector('select[name="selectOptions1"]');
 let selectOptions2 = document.querySelector('select[name="selectOptions2"]');
 
-
 //
 
 let binaryName = "";
-let botOutput = [];
+let DtoB_integerOutput = [];
 
 submit.addEventListener("click", () => {
   if (selectOptions2.value === "Number") {
     let userNumber = parseInt(inputValue.value);
-    botOutput = [];
+    DtoB_integerOutput = [];
     if (userNumber === 0) {
-      botOutput.unshift("0");
+      DtoB_integerOutput.unshift("0");
     } else {
       for (let i = 1; i <= userNumber; i) {
         if (userNumber % 2 === 0) {
-          botOutput.unshift("0");
+          DtoB_integerOutput.unshift("0");
           userNumber = Math.floor(userNumber / 2);
         } else {
-          botOutput.unshift("1");
+          DtoB_integerOutput.unshift("1");
           userNumber = Math.floor(userNumber / 2);
         }
       }
     }
-    output.value = botOutput.join("");
+    output.value = DtoB_integerOutput.join("");
   } else {
     binaryName = "";
     if (selectOptions.value === "Binary") {

@@ -1,0 +1,149 @@
+:root {
+  --bgColor: rgba(20, 25, 30, 1);
+  --lightColor: #fff;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bgColor);
+  width: 100%;
+}
+
+.display-s-b {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.display-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gap-20 {
+  gap: 20px;
+}
+.gap-40 {
+  gap: 40px;
+}
+
+main {
+  width: 100%;
+  max-width: 1536px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+section {
+  margin-top: 50px;
+}
+
+.title {
+  margin-top: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+.title h2 {
+  color: var(--lightColor);
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.container {
+  width: 50%;
+}
+
+.container h2 {
+  color: var(--lightColor);
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  overflow-x: hidden;
+}
+
+.textareaInput {
+  width: 70%;
+  background: var(--lightColor);
+  resize: none;
+  border-top-left-radius: 10px;
+  scrollbar-width: none;
+}
+
+input[value="Convert"] {
+  width: 30%;
+  border-top-right-radius: 10px;
+  background-color: cadetblue;
+  color: var(--lightColor);
+  cursor: pointer;
+}
+
+.textareaInput,
+input[value="Convert"] {
+  border: none;
+  outline: none;
+  padding: 15px;
+  font-size: 1rem;
+  height: 70px;
+}
+
+input[value="Convert"] {
+  transition: 0.2s;
+}
+
+input[value="Convert"]:hover {
+  box-shadow: inset 5px 5px 12px rgba(255, 255, 255, 0.5),
+    inset -5px -5px 12px rgba(0, 0, 0, 0.5);
+}
+
+.textareaOutput {
+  width: 100%;
+  min-height: 50px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 15px;
+  resize: vertical;
+  max-height: 200px;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  background-color: var(--lightColor);
+}
+
+@media screen and (max-width: 768px) {
+  .gap-40 {
+    gap: 30px;
+  }
+
+  main {
+    padding: 0 20px;
+  }
+
+  section {
+    margin-top: 40px;
+  }
+
+  .main_container {
+    flex-direction: column;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  input[value="Convert"] {
+    box-shadow: inset 5px 5px 12px rgba(255, 255, 255, 0.5),
+      inset -5px -5px 12px rgba(0, 0, 0, 0.5);
+  }
+}

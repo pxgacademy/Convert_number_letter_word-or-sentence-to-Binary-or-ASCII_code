@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Name to Binary</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main>
+      <h2>
+        Convert any number, letter, word or sentence to Binary or ASCII code
+      </h2>
+      <div id="container">
+        <div id="inputBox">
+          <input
+            type="text"
+            name="fullName"
+            id="fullName"
+            placeholder="Type the number, letter, word or sentence"
+          />
+          <div id="menu">
+            <input type="submit" value="Submit" />
+            <select name="selectOptions1" id="selectOptions1">
+              <option value="Binary">Binary</option>
+              <option value="ASCII">ASCII</option>
+            </select>
+            <select name="selectOptions2" id="selectOptions2">
+              <option value="Number">Number</option>
+              <option value="Text">Text</option>
+            </select>
+          </div>
+        </div>
+        <div id="outputBoxx">
+          <textarea name="outputBox" id="outputBox" disabled></textarea>
+        </div>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
