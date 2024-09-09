@@ -270,7 +270,7 @@ function userOtoD_IntegerTotalFunc() {
 
 let userOtoD_FractionTotal = 0;
 
-function userFractionTotalFunc() {
+function userOtoD_FractionTotalFunc() {
   let i = -1;
   for (const v of userOtoD_InputFraction) {
     let n = v * 8 ** i;
@@ -289,7 +289,7 @@ OtoD_submit.addEventListener("click", () => {
   gettingOtoD_UserInput();
   divideOtoD_IntegerAndFraction();
   userOtoD_IntegerTotalFunc();
-  userFractionTotalFunc();
+  userOtoD_FractionTotalFunc();
 
   const OtoD_total_output = OtoD_userIntegerTotal + userOtoD_FractionTotal;
   OtoD_output.value = OtoD_total_output;
