@@ -74,6 +74,7 @@ function DtoB_outputFunction() {
 
 DtoB_submit.addEventListener("click", () => {
   DtoB_outputFunction();
+  DtoB_input.select();
 });
 
 // Convert Binary to decimal number
@@ -293,4 +294,124 @@ OtoD_submit.addEventListener("click", () => {
 
   const OtoD_total_output = OtoD_userIntegerTotal + userOtoD_FractionTotal;
   OtoD_output.value = OtoD_total_output;
+});
+
+// =======================================================================
+
+let DtoH_input = document.querySelector('textarea[name="DtoH-input"]');
+let DtoH_submit = document.querySelector('input[name="DtoH_submit"]');
+let DtoH_output = document.querySelector('textarea[name="DtoH-output"]');
+
+//
+// Decimal to HexaDecimal integer output
+let DtoH_integerOutputArray = [];
+
+function DtoH_integer() {
+  const v = parseFloat(DtoH_input.value);
+  let input_num = Math.floor(v);
+  if (input_num < 16) {
+    DtoH_integerOutputArray.unshift(input_num);
+  } else {
+    for (let r = 16; r <= input_num; r) {
+      let i = input_num / 16;
+      let f = i - Math.floor(i);
+      let o = 16 * f;
+      DtoH_integerOutputArray.unshift(o);
+      input_num = Math.floor(i);
+    }
+    if (input_num > 0 && input_num < 16) {
+      DtoH_integerOutputArray.unshift(input_num);
+    }
+  }
+}
+
+// Decimal to Hexa Integer
+
+let decimalToHexaIntArray = [];
+
+function decimalToHexaInteger() {
+  for (const v of DtoH_integerOutputArray) {
+    if (v === 10) {
+      decimalToHexaIntArray.push("A");
+    } else if (v === 11) {
+      decimalToHexaIntArray.push("B");
+    } else if (v === 12) {
+      decimalToHexaIntArray.push("C");
+    } else if (v === 13) {
+      decimalToHexaIntArray.push("D");
+    } else if (v === 14) {
+      decimalToHexaIntArray.push("E");
+    } else if (v === 15) {
+      decimalToHexaIntArray.push("F");
+    } else {
+      decimalToHexaIntArray.push(v);
+    }
+  }
+}
+
+// Decimal to HexaDecimal fraction output
+let DtoH_fractionOutputArray = [];
+
+function DtoH_fraction() {
+  const v = parseFloat(DtoH_input.value);
+  let input_num = v - Math.floor(v);
+
+  for (let r = 0; r < 50; r++) {
+    if (input_num > 0) {
+      let i = input_num * 16;
+      let o = Math.floor(i);
+      DtoH_fractionOutputArray.push(o);
+      input_num = i - o;
+    } else {
+      break;
+    }
+  }
+}
+
+// Decimal to Hexa Integer
+
+let decimalToHexaFractionArray = [];
+
+function decimalToHexaFraction() {
+  for (const v of DtoH_fractionOutputArray) {
+    if (v === 10) {
+      decimalToHexaFractionArray.push("A");
+    } else if (v === 11) {
+      decimalToHexaFractionArray.push("B");
+    } else if (v === 12) {
+      decimalToHexaFractionArray.push("C");
+    } else if (v === 13) {
+      decimalToHexaFractionArray.push("D");
+    } else if (v === 14) {
+      decimalToHexaFractionArray.push("E");
+    } else if (v === 15) {
+      decimalToHexaFractionArray.push("F");
+    } else {
+      decimalToHexaFractionArray.push(v);
+    }
+  }
+}
+
+//
+DtoH_submit.addEventListener("click", () => {
+  const v = parseFloat(DtoH_input.value);
+  let input_num = v - Math.floor(v);
+
+  DtoH_integerOutputArray = [];
+  DtoH_fractionOutputArray = [];
+  decimalToHexaIntArray = [];
+  decimalToHexaFractionArray = [];
+
+  DtoH_integer();
+  DtoH_fraction();
+  decimalToHexaInteger();
+  decimalToHexaFraction();
+
+  if (input_num > 0) {
+    DtoH_output.value = `${decimalToHexaIntArray.join(
+      ""
+    )}.${decimalToHexaFractionArray.join("").toString()}`;
+  } else {
+    DtoH_output.value = `${decimalToHexaIntArray.join("")}`;
+  }
 });

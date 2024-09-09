@@ -149,4 +149,74 @@ input[value="Convert"]:hover {
 }
 
 
-/*  */
+/* 
+
+let DtoO_input = document.querySelector('textarea[name="DtoO-input"]');
+let DtoO_submit = document.querySelector('input[name="DtoO_submit"]');
+let DtoO_output = document.querySelector('textarea[name="DtoO-output"]');
+
+//
+// Decimal to Octal integer output
+let DtoO_integerOutputArray = [];
+
+function DtoO_integer() {
+  const v = parseFloat(DtoO_input.value);
+  let input_num = Math.floor(v);
+  if (input_num < 8) {
+    DtoO_integerOutputArray.unshift(input_num);
+  } else {
+    for (let r = 8; r <= input_num; r) {
+      let i = input_num / 8;
+      let f = i - Math.floor(i);
+      let o = 8 * f;
+      DtoO_integerOutputArray.unshift(o);
+      input_num = Math.floor(i);
+    }
+    if (input_num > 0 && input_num < 8) {
+      DtoO_integerOutputArray.unshift(input_num);
+    }
+  }
+}
+
+//
+// Decimal to Octal fraction output
+let DtoO_fractionOutputArray = [];
+
+function DtoO_fraction() {
+  const v = parseFloat(DtoO_input.value);
+  let input_num = v - Math.floor(v);
+
+  for (let r = 0; r < 50; r++) {
+    if (input_num > 0) {
+      let i = input_num * 8;
+      let o = Math.floor(i);
+      DtoO_fractionOutputArray.push(o);
+      input_num = i - o;
+    } else {
+      break;
+    }
+  }
+}
+
+//
+DtoO_submit.addEventListener("click", () => {
+  const v = parseFloat(DtoO_input.value);
+  let input_num = v - Math.floor(v);
+
+  DtoO_integerOutputArray = [];
+  DtoO_fractionOutputArray = [];
+
+  DtoO_integer();
+  DtoO_fraction();
+
+  if (input_num > 0) {
+    DtoO_output.value = `${DtoO_integerOutputArray.join(
+      ""
+    )}.${DtoO_fractionOutputArray.join("").toString()}`;
+  } else {
+    DtoO_output.value = `${DtoO_integerOutputArray.join("")}`;
+  }
+});
+
+
+*/
