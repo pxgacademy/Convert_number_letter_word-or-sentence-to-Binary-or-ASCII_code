@@ -415,3 +415,100 @@ DtoH_submit.addEventListener("click", () => {
     DtoH_output.value = `${decimalToHexaIntArray.join("")}`;
   }
 });
+
+// Convert HexaDecimal to Decimal Number
+
+let HtoD_input = document.querySelector('textarea[name="HtoD-input"]');
+let HtoD_submit = document.querySelector('input[name="HtoD_submit"]');
+let HtoD_output = document.querySelector('textarea[name="HtoD-output"]');
+
+let HtoD_basicArray = [];
+
+function HtoD_basicFunc() {
+  for (const a of HtoD_input.value) {
+    HtoD_basicArray.push(a);
+  }
+}
+
+let userInputHtoD_Array = [];
+
+function gettingHtoD_UserInput() {
+  for (const a of HtoD_basicArray) {
+    if (a === "A") {
+      userInputHtoD_Array.push(10);
+    } else if (a === "B") {
+      userInputHtoD_Array.push(11);
+    } else if (a === "C") {
+      userInputHtoD_Array.push(12);
+    } else if (a === "D") {
+      userInputHtoD_Array.push(13);
+    } else if (a === "E") {
+      userInputHtoD_Array.push(14);
+    } else if (a === "F") {
+      userInputHtoD_Array.push(15);
+    } else {
+      userInputHtoD_Array.push(a);
+    }
+  }
+}
+
+let userHtoD_InputInteger = [];
+let userHtoD_InputFraction = [];
+
+function divideHtoD_IntegerAndFraction() {
+  for (const v of userInputHtoD_Array) {
+    if (v === ".") {
+      userInputHtoD_Array.reverse();
+      for (const v of userInputHtoD_Array) {
+        if (v === ".") {
+          break;
+        } else {
+          userHtoD_InputFraction.unshift(parseInt(v));
+        }
+      }
+      break;
+    } else {
+      userHtoD_InputInteger.unshift(parseInt(v));
+    }
+  }
+}
+
+let HtoD_userIntegerTotal = 0;
+
+function userHtoD_IntegerTotalFunc() {
+  let i = 0;
+  for (const v of userHtoD_InputInteger) {
+    let n = v * 16 ** i;
+    HtoD_userIntegerTotal += n;
+    i++;
+  }
+}
+
+let userHtoD_FractionTotal = 0;
+
+function userHtoD_FractionTotalFunc() {
+  let i = -1;
+  for (const v of userHtoD_InputFraction) {
+    let n = v * 16 ** i;
+    userHtoD_FractionTotal += n;
+    i--;
+  }
+}
+
+HtoD_submit.addEventListener("click", () => {
+  HtoD_basicArray = [];
+  userInputHtoD_Array = [];
+  userHtoD_InputInteger = [];
+  userHtoD_InputFraction = [];
+  HtoD_userIntegerTotal = 0;
+  userHtoD_FractionTotal = 0;
+
+  HtoD_basicFunc();
+  gettingHtoD_UserInput();
+  divideHtoD_IntegerAndFraction();
+  userHtoD_IntegerTotalFunc();
+  userHtoD_FractionTotalFunc();
+
+  const HtoD_total_output = HtoD_userIntegerTotal + userHtoD_FractionTotal;
+  HtoD_output.value = HtoD_total_output;
+});
