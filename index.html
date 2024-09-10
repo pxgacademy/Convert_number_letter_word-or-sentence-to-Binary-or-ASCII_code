@@ -14,9 +14,9 @@
       </div>
 
       <!-- Decimal to Binary and Binary to Decimal-->
-      <section class="main_container display-s-b gap-40">
-        <!-- Decimal to Binary -->
-        <div class="container">
+      <!-- <section class="main_container display-s-b gap-40"> -->
+      <!-- Decimal to Binary -->
+      <!-- <div class="container">
           <h2>Convert Decimal to Binary</h2>
           <div class="display-s-b">
             <textarea
@@ -35,10 +35,10 @@
             placeholder="Output will be here"
             disabled
           ></textarea>
-        </div>
+        </div> -->
 
-        <!-- Binary to Decimal -->
-        <div class="container">
+      <!-- Binary to Decimal -->
+      <!-- <div class="container">
           <h2>Convert Binary to Decimal</h2>
           <div class="display-s-b">
             <textarea
@@ -57,13 +57,13 @@
             placeholder="Output will be here"
             disabled
           ></textarea>
-        </div>
-      </section>
+        </div> -->
+      <!-- </section> -->
 
       <!-- Decimal to Octal and Octal to Decimal-->
-      <section class="main_container display-s-b gap-40">
-        <!-- Decimal to Octal -->
-        <div class="container">
+      <!-- <section class="main_container display-s-b gap-40"> -->
+      <!-- Decimal to Octal -->
+      <!-- <div class="container">
           <h2>Convert Decimal to Octal</h2>
           <div class="display-s-b">
             <textarea
@@ -82,10 +82,10 @@
             placeholder="Output will be here"
             disabled
           ></textarea>
-        </div>
+        </div> -->
 
-        <!-- Octal to Decimal -->
-        <div class="container">
+      <!-- Octal to Decimal -->
+      <!-- <div class="container">
           <h2>Convert Octal to Decimal</h2>
           <div class="display-s-b">
             <textarea
@@ -104,13 +104,13 @@
             placeholder="Output will be here"
             disabled
           ></textarea>
-        </div>
-      </section>
+        </div> -->
+      <!-- </section> -->
 
       <!-- Decimal to HexaDecimal and HexaDecimal to Decimal-->
-      <section class="main_container display-s-b gap-40">
-        <!-- Decimal to HexaDecimal -->
-        <div class="container">
+      <!-- <section class="main_container display-s-b gap-40"> -->
+      <!-- Decimal to HexaDecimal -->
+      <!-- <div class="container">
           <h2>Convert Decimal to HexaDecimal</h2>
           <div class="display-s-b">
             <textarea
@@ -128,10 +128,10 @@
             placeholder="Output will be here"
             disabled
           ></textarea>
-        </div>
+        </div> -->
 
-        <!-- HexaDecimal to Decimal -->
-        <div class="container">
+      <!-- HexaDecimal to Decimal -->
+      <!-- <div class="container">
           <h2>Convert HexaDecimal to Decimal</h2>
           <div class="display-s-b">
             <textarea
@@ -149,6 +149,69 @@
             placeholder="Output will be here"
             disabled
           ></textarea>
+        </div>
+      </section> -->
+
+      <!-- Dynamic Calculator -->
+      <section class="list_container">
+        <div class="list">
+          <!-- From list -->
+          <div id="from_list">
+            <select name="fromList" id="fromList">
+              <option class="select" value="selectOne" selected>
+                Select One
+              </option>
+              <option class="f_decimal" value="decimal">Decimal</option>
+              <option class="f_binary" value="binary">Binary</option>
+              <option class="f_octal" value="octal">Octal</option>
+              <option class="f_hexadecimal" value="hexadecimal">
+                Hexadecimal
+              </option>
+            </select>
+          </div>
+
+          <!-- switch -->
+          <div class="switch">
+            <img src="./icons/repeat-solid.svg" alt="switch" id="switch" />
+          </div>
+
+          <!-- To list -->
+          <div id="to_list">
+            <select name="toList" id="toList">
+              <option class="select" value="selectOne" selected>
+                Select One
+              </option>
+              <option class="t_decimal" value="decimal">Decimal</option>
+              <option class="t_binary" value="binary">Binary</option>
+              <option class="t_octal" value="octal">Octal</option>
+              <option class="t_hexadecimal" value="hexadecimal">
+                Hexadecimal
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <!-- input output -->
+        <div class="input-output">
+          <p id="fromTitle">Select an option from above</p>
+          <textarea
+            name="userInput"
+            id="userInput"
+            placeholder="Input will be here"
+          ></textarea>
+          <p id="toTitle">Select an option from above</p>
+          <textarea
+            name="botOutput"
+            id="botOutput"
+            placeholder="Output will be here"
+            disabled
+          ></textarea>
+        </div>
+
+        <!-- buttons -->
+        <div class="buttons">
+          <button id="convertTo">Convert</button>
+          <button id="reset">Reset</button>
         </div>
       </section>
     </main>

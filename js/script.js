@@ -1,5 +1,5 @@
 // "use strict";
-
+/*
 // Convert decimal number to Binary
 
 let DtoB_input = document.querySelector('textarea[name="DtoB-input"]');
@@ -152,7 +152,7 @@ BtoD_submit.addEventListener("click", () => {
 
 // =======================================================================
 
-// Convert Binary to decimal number
+// Convert Decimal number to Octal number
 
 let DtoO_input = document.querySelector('textarea[name="DtoO-input"]');
 let DtoO_submit = document.querySelector('input[name="DtoO_submit"]');
@@ -298,6 +298,8 @@ OtoD_submit.addEventListener("click", () => {
 
 // =======================================================================
 
+
+// Convert Decimal to Hexadecimal
 let DtoH_input = document.querySelector('textarea[name="DtoH-input"]');
 let DtoH_submit = document.querySelector('input[name="DtoH_submit"]');
 let DtoH_output = document.querySelector('textarea[name="DtoH-output"]');
@@ -512,3 +514,4 @@ HtoD_submit.addEventListener("click", () => {
   const HtoD_total_output = HtoD_userIntegerTotal + userHtoD_FractionTotal;
   HtoD_output.value = HtoD_total_output;
 });
+*/
