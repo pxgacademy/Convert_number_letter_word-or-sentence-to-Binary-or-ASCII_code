@@ -11,8 +11,8 @@ let t_binary = document.querySelector(".t_binary");
 let t_octal = document.querySelector(".t_octal");
 let t_hexadecimal = document.querySelector(".t_hexadecimal");
 
-let fromTitle = document.querySelector('#fromTitle')
-let toTitle = document.querySelector('#toTitle')
+let fromTitle = document.querySelector("#fromTitle");
+let toTitle = document.querySelector("#toTitle");
 
 function switchFromList() {
   t_decimal.style.display = "block";
@@ -22,16 +22,16 @@ function switchFromList() {
 
   if (fromList.value === "decimal") {
     t_decimal.style.display = "none";
-    fromTitle.innerText = 'Enter the Decimal number'
+    fromTitle.innerText = "Enter the Decimal number";
   } else if (fromList.value === "binary") {
     t_binary.style.display = "none";
-    fromTitle.innerText = 'Enter the Binary number'
+    fromTitle.innerText = "Enter the Binary number";
   } else if (fromList.value === "octal") {
     t_octal.style.display = "none";
-    fromTitle.innerText = 'Enter the Octal number'
+    fromTitle.innerText = "Enter the Octal number";
   } else if (fromList.value === "hexadecimal") {
     t_hexadecimal.style.display = "none";
-    fromTitle.innerText = 'Enter the Hexadecimal number'
+    fromTitle.innerText = "Enter the Hexadecimal number";
   }
 }
 
@@ -43,16 +43,16 @@ function switchToList() {
 
   if (toList.value === "decimal") {
     f_decimal.style.display = "none";
-    toTitle.innerText = 'The Decimal number is:'
+    toTitle.innerText = "The Decimal number is:";
   } else if (toList.value === "binary") {
     f_binary.style.display = "none";
-    toTitle.innerText = 'The Binary number is:'
+    toTitle.innerText = "The Binary number is:";
   } else if (toList.value === "octal") {
     f_octal.style.display = "none";
-    toTitle.innerText = 'The Octal number is:'
+    toTitle.innerText = "The Octal number is:";
   } else if (toList.value === "hexadecimal") {
     f_hexadecimal.style.display = "none";
-    toTitle.innerText = 'The Hexadecimal number is:'
+    toTitle.innerText = "The Hexadecimal number is:";
   }
 }
 
@@ -560,6 +560,6 @@ resetBtn.addEventListener("click", () => {
   toList.value = "selectOne";
   switchFromList();
   switchToList();
-  fromTitle.innerText = 'Select an option from above'
-  toTitle.innerText = 'Select an option from above'
+  fromTitle.innerText = "Select an option from above";
+  toTitle.innerText = "Select an option from above";
 });

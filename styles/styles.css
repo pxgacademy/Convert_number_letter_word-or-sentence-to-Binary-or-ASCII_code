@@ -1,6 +1,6 @@
 :root {
   --bgColor: rgba(20, 25, 30, 1);
-  --lightColor: #fff;
+  --lightColor: #ffffff;
 }
 
 *,
@@ -19,120 +19,36 @@ html {
 body {
   background-color: var(--bgColor);
   width: 100%;
+  padding: 0 20px;
 }
 
-.display-s-b {
+.display {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-}
-.display-c {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.gap-20 {
-  gap: 20px;
-}
-.gap-40 {
-  gap: 40px;
+  gap: 10px;
 }
 
-main {
-  width: 100%;
-  max-width: 1536px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
-section {
-  margin-top: 50px;
-}
+/* =================================================== */
 
 .title {
-  margin-top: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-}
-.title h2 {
-  color: var(--lightColor);
-  font-size: 1.5rem;
-  font-weight: normal;
+  max-width: 768px;
+  margin: 0 auto;
   text-align: center;
-  padding-bottom: 10px;
+  padding: 20px 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
 }
 
-.container {
-  width: 50%;
+.title > h2 {
+  color: deeppink;
+  font-size: 1.5rem;
 }
 
-.container h2 {
-  color: var(--lightColor);
-  margin-bottom: 15px;
-  font-size: 1.3rem;
-  overflow-x: hidden;
-}
-
-.textareaInput {
-  width: 70%;
-  background: var(--lightColor);
-  resize: none;
-  border-top-left-radius: 10px;
-  scrollbar-width: none;
-}
-
-input[value="Convert"] {
-  width: 30%;
-  border-top-right-radius: 10px;
-  background-color: cadetblue;
-  color: var(--lightColor);
-  cursor: pointer;
-}
-
-.textareaInput,
-input[value="Convert"] {
-  border: none;
-  outline: none;
-  padding: 15px;
-  font-size: 1rem;
-  height: 70px;
-}
-
-input[value="Convert"] {
-  transition: 0.2s;
-}
-
-input[value="Convert"]:hover {
-  box-shadow: inset 5px 5px 12px rgba(255, 255, 255, 0.5),
-    inset -5px -5px 12px rgba(0, 0, 0, 0.5);
-}
-
-.textareaOutput {
-  width: 100%;
-  min-height: 50px;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  padding: 15px;
-  resize: vertical;
-  max-height: 200px;
-  font-size: 1rem;
-  border: none;
-  outline: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
-  background-color: var(--lightColor);
-}
-
-.list_container {
+.calculator {
   width: 100%;
   max-width: 768px;
   margin: 0 auto;
   margin-top: 50px;
-}
-
-.list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
 }
 
 #from_list,
@@ -142,20 +58,19 @@ input[value="Convert"]:hover {
 
 select {
   width: 100%;
-  font-size: 1.2rem;
-  background-color: transparent;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
   font-weight: bold;
-  padding: 15px 20px;
+  background-color: transparent;
+  color: var(--lightColor);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 15px 15px;
   border-radius: 6px;
   transition: 0.2s;
 }
 select:focus {
   outline: none !important;
-  border-color: #719ece;
+  border-color: deeppink;
   box-shadow: 0 0 10px deeppink;
-  border: 1px solid deeppink;
 }
 
 select:hover {
@@ -164,6 +79,7 @@ select:hover {
 
 option {
   background-color: rgba(20, 25, 30, 1);
+  color: var(--lightColor);
 }
 
 select option[value="selectOne"] {
@@ -199,12 +115,12 @@ select option[value="selectOne"] {
 #botOutput {
   width: 100%;
   resize: vertical;
-  min-height: 50px;
+  min-height: 60px;
   max-height: 200px;
   border-radius: 6px;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.5);
-  padding: 10px 20px;
+  padding: 10px 15px;
   color: #fff;
   font-size: 1rem;
   /* overflow: hidden; */
@@ -212,7 +128,6 @@ select option[value="selectOne"] {
 
 #userInput:focus {
   outline: none !important;
-  border-color: #719ece;
   box-shadow: 0 0 10px yellow;
   border: 1px solid yellow;
 }
@@ -224,9 +139,6 @@ select option[value="selectOne"] {
 
 .buttons {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   gap: 20px;
   margin-top: 20px;
 }
@@ -236,13 +148,13 @@ button {
   padding: 15px;
   font-size: 1.2rem;
   font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-  outline: none;
-  background: rgba(255, 255, 255, 0.1);
   color: white;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  outline: none;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
   transition: 0.3s;
 }
 button:hover {
@@ -256,28 +168,8 @@ button:hover {
 }
 
 @media screen and (max-width: 768px) {
-  .gap-40 {
-    gap: 30px;
-  }
-
-  main {
-    padding: 0 20px;
-  }
-
-  section {
-    margin-top: 40px;
-  }
-
-  .main_container {
-    flex-direction: column;
-  }
-
-  .container {
-    width: 100%;
-  }
-
-  input[value="Convert"] {
-    box-shadow: inset 5px 5px 12px rgba(255, 255, 255, 0.5),
-      inset -5px -5px 12px rgba(0, 0, 0, 0.5);
+  #userInput,
+  #botOutput {
+    min-height: 100px;
   }
 }
