@@ -1,3 +1,42 @@
+// let userInput = document.querySelector("#userInput");
+
+// let userInputArray = [];
+
+// function userInputToArray() {
+//   for (const v of userInput.value) {
+//     userInputArray.push(v);
+//   }
+// }
+
+// //
+// let userInputArray_BtoO = [[], [], [], [], [], [], [], [], [], []];
+
+// function userInputToArray_BtoO() {
+//   let aryLength = userInputArray.length;
+//   let aryPos = 0;
+//   let x = 0;
+
+//   for (let v = 0; v <= aryLength; v) {
+//     for (let i = 0; i < 3; i++) {
+//       userInputArray_BtoO[x].unshift(userInputArray[aryPos]);
+//       aryPos += 1;
+//     }
+
+//     v += 3;
+//     x += 1;
+//   }
+// }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 let fromList = document.querySelector('select[name="fromList"]');
 let toList = document.querySelector('select[name="toList"]');
 let switchList = document.querySelector("#switch");
@@ -80,10 +119,13 @@ switchList.addEventListener("click", () => {
 //
 
 //
-let userInput = document.querySelector("#userInput");
+let inputUser = document.querySelector("#userInput");
 let botOutput = document.querySelector("#botOutput");
 let convertTo = document.querySelector("#convertTo");
 let resetBtn = document.querySelector("#reset");
+
+let userInput = inputUser;
+
 //
 let userInputArray = [];
 //
@@ -216,6 +258,7 @@ function BtoD_finalOutput() {
 
   const BtoD_total_output = userIntegerTotal + userFractionTotal;
   botOutput.value = BtoD_total_output;
+  userInput = botOutput;
 }
 
 // Convert Decimal to Octal number
@@ -262,7 +305,7 @@ function DtoO_fraction() {
 }
 
 //
-function DotO_finalOutput() {
+function DtoO_finalOutput() {
   const v = parseFloat(userInput.value);
   let input_num = v - Math.floor(v);
 
@@ -336,6 +379,7 @@ function OtoD_finalOutput() {
 
   const OtoD_total_output = OtoD_userIntegerTotal + userOtoD_FractionTotal;
   botOutput.value = OtoD_total_output;
+  userInput = botOutput;
 }
 
 // Convert Decimal to Hexadecimal
@@ -525,6 +569,7 @@ function HtoD_finalOutput() {
 
   const HtoD_total_output = HtoD_userIntegerTotal + userHtoD_FractionTotal;
   botOutput.value = HtoD_total_output;
+  userInput = botOutput;
 }
 
 //
@@ -532,29 +577,48 @@ function HtoD_finalOutput() {
 //
 
 convertTo.addEventListener("click", () => {
+  userInput = inputUser;
   userInputArray = [];
   userInputToArray();
-  console.log(userInputArray);
+  // console.log(userInputArray);
 
   if (fromList.value === "decimal" && toList.value === "binary") {
     DtoB_finalOutput();
   } else if (fromList.value === "binary" && toList.value === "decimal") {
     BtoD_finalOutput();
   } else if (fromList.value === "decimal" && toList.value === "octal") {
-    DotO_finalOutput();
+    DtoO_finalOutput();
   } else if (fromList.value === "octal" && toList.value === "decimal") {
     OtoD_finalOutput();
   } else if (fromList.value === "decimal" && toList.value === "hexadecimal") {
     DtoH_finalOutput();
   } else if (fromList.value === "hexadecimal" && toList.value === "decimal") {
     HtoD_finalOutput();
+  } else if (fromList.value === "binary" && toList.value === "octal") {
+    BtoD_finalOutput();
+    DtoO_finalOutput();
+  } else if (fromList.value === "binary" && toList.value === "hexadecimal") {
+    BtoD_finalOutput();
+    DtoH_finalOutput();
+  } else if (fromList.value === "octal" && toList.value === "binary") {
+    OtoD_finalOutput();
+    DtoB_finalOutput();
+  } else if (fromList.value === "octal" && toList.value === "hexadecimal") {
+    OtoD_finalOutput();
+    DtoH_finalOutput();
+  } else if (fromList.value === "hexadecimal" && toList.value === "binary") {
+    HtoD_finalOutput();
+    DtoB_finalOutput();
+  } else if (fromList.value === "hexadecimal" && toList.value === "octal") {
+    HtoD_finalOutput();
+    DtoO_finalOutput();
   } else {
-    botOutput.value = `Sorry! only decimal to other and other to decimal will work`;
+    botOutput.value = `Sorry! invalid input. Select calculation type from above`;
   }
 });
 
 resetBtn.addEventListener("click", () => {
-  userInput.value = "";
+  inputUser.value = "";
   botOutput.value = "";
   fromList.value = "selectOne";
   toList.value = "selectOne";
