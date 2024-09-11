@@ -475,3 +475,49 @@ submit.addEventListener("click", () => {
     output.value = binaryName;
   }
 });
+
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+// text to binary
+
+function textToBinary(text) {
+  return text
+    .split("")
+    .map((char) => char.charCodeAt(0).toString(2).padStart(8, "0"))
+    .join(" ");
+}
+
+let inputText = "Abdullah";
+let binaryOutput = textToBinary(inputText);
+console.log(binaryOutput);
+
+
+// binary to octal
+
+function binaryToOctal(binary) {
+  // Remove any spaces from the input and ensure it is in groups of 3 bits
+  let binaryStr = binary.replace(/\s+/g, ''); 
+  
+  // Pad the binary string at the start with 0s to make its length divisible by 3
+  binaryStr = binaryStr.padStart(Math.ceil(binaryStr.length / 3) * 3, '0');
+  
+  // Convert binary to octal by taking groups of 3 bits
+  let octal = binaryStr.match(/.{1,3}/g)  // Split into groups of 3 bits
+    .map(group => parseInt(group, 2).toString(8))  // Convert each group to octal
+    .join('');  // Join the octal digits back together
+  
+  return octal;
+}
+
+let binaryInput = "10101010111";
+let octalOutput = binaryToOctal(binaryInput);
+console.log(octalOutput);

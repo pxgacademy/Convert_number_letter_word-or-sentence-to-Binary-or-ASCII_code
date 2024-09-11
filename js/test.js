@@ -27,15 +27,6 @@
 //   }
 // }
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 let fromList = document.querySelector('select[name="fromList"]');
 let toList = document.querySelector('select[name="toList"]');
@@ -572,10 +563,6 @@ function HtoD_finalOutput() {
   userInput = botOutput;
 }
 
-//
-//
-//
-
 convertTo.addEventListener("click", () => {
   userInput = inputUser;
   userInputArray = [];
@@ -613,7 +600,7 @@ convertTo.addEventListener("click", () => {
     HtoD_finalOutput();
     DtoO_finalOutput();
   } else {
-    botOutput.value = `Sorry! invalid input. Select calculation type from above`;
+    botOutput.value = `Sorry! invalid input. Select the calculation type from above.`;
   }
 });
 
