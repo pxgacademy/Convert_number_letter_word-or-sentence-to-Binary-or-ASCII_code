@@ -1,7 +1,11 @@
+// variable list
+
+// dropdown list var
 let fromList = document.querySelector('select[name="fromList"]');
 let toList = document.querySelector('select[name="toList"]');
 let switchList = document.querySelector("#switch");
 
+// dropdown options (from) var
 let f_decimal = document.querySelector(".f_decimal");
 let f_binary = document.querySelector(".f_binary");
 let f_octal = document.querySelector(".f_octal");
@@ -10,6 +14,7 @@ let f_roman = document.querySelector(".f_roman");
 let f_text = document.querySelector(".f_text");
 let f_ascii = document.querySelector(".f_ascii");
 
+// dropdown options (to) var
 let t_decimal = document.querySelector(".t_decimal");
 let t_binary = document.querySelector(".t_binary");
 let t_octal = document.querySelector(".t_octal");
@@ -18,8 +23,37 @@ let t_roman = document.querySelector(".t_roman");
 let t_text = document.querySelector(".t_text");
 let t_ascii = document.querySelector(".t_ascii");
 
+// optional output last 3 output box's div
+let optionalOutput = document.querySelector("#optionalOutput");
+
+// html title of the input and output
 let fromTitle = document.querySelector("#fromTitle");
 let toTitle = document.querySelector("#toTitle");
+
+// input and all output boxes
+let userInput = document.querySelector("#userInput");
+let botOutputOne = document.querySelector("#botOutputOne");
+let botOutputTwo = document.querySelector("#botOutputTwo");
+let botOutputThree = document.querySelector("#botOutputThree");
+let botOutputFour = document.querySelector("#botOutputFour");
+let botOutputFive = document.querySelector("#botOutputFive");
+
+// convert and reset buttons
+let convertTo = document.querySelector("#convertTo");
+let resetBtn = document.querySelector("#reset");
+
+//
+//
+//
+
+function clearInputOutputBoxes() {
+  userInput.value = "";
+  botOutputOne.value = "";
+  botOutputTwo.value = "";
+  botOutputThree.value = "";
+  botOutputFour.value = "";
+  botOutputFive.value = "";
+}
 
 function switchFromList() {
   t_decimal.style.display = "block";
@@ -65,34 +99,321 @@ function switchToList() {
 
   if (toList.value === "decimal") {
     f_decimal.style.display = "none";
-    toTitle.innerText = "The Decimal number is:";
   } else if (toList.value === "binary") {
     f_binary.style.display = "none";
-    toTitle.innerText = "The Binary number is:";
   } else if (toList.value === "octal") {
     f_octal.style.display = "none";
-    toTitle.innerText = "The Octal number is:";
   } else if (toList.value === "hexa") {
     f_hexa.style.display = "none";
-    toTitle.innerText = "The Hexadecimal number is:";
   } else if (toList.value === "roman") {
     f_roman.style.display = "none";
-    toTitle.innerText = "The Roman number is:";
   } else if (toList.value === "text") {
     f_text.style.display = "none";
-    toTitle.innerText = "The Text is:";
   } else if (toList.value === "ascii") {
     f_ascii.style.display = "none";
-    toTitle.innerText = "The ASCII number is:";
+  }
+}
+
+function changeToTitle() {
+  if (fromList.value === "selectOne" || toList.value === "selectOne") {
+    toTitleOne.innerText = "Select an option from above";
+    toTitleTwo.innerText = "Select an option from above";
+    toTitleThree.innerText = "Select an option from above";
+    toTitleFour.innerText = "Select an option from above";
+  }
+  //
+  else if (fromList.value === "decimal" && toList.value === "binary") {
+    toTitleOne.innerText = "The Binary number is:";
+    toTitleTwo.innerText = "The Octal number is:";
+    toTitleThree.innerText = "The Hexadecimal number is:";
+    toTitleFour.innerText = "The Roman number is:";
+  }
+  //
+  else if (fromList.value === "decimal" && toList.value === "octal") {
+    toTitleOne.innerText = "The Octal number is:";
+    toTitleTwo.innerText = "The Binary number is:";
+    toTitleThree.innerText = "The Hexadecimal number is:";
+    toTitleFour.innerText = "The Roman number is:";
+  }
+  //
+  else if (fromList.value === "decimal" && toList.value === "hexa") {
+    toTitleOne.innerText = "The Hexadecimal number is:";
+    toTitleTwo.innerText = "The Binary number is:";
+    toTitleThree.innerText = "The Octal number is:";
+    toTitleFour.innerText = "The Roman number is:";
+  }
+  //
+  else if (fromList.value === "decimal" && toList.value === "roman") {
+    toTitleOne.innerText = "The Roman number is:";
+    toTitleTwo.innerText = "The Binary number is:";
+    toTitleThree.innerText = "The Octal number is:";
+    toTitleFour.innerText = "The Hexadecimal number is:";
+  }
+  //
+  else if (
+    (fromList.value === "decimal" || fromList.value === "ascii") &&
+    toList.value === "text"
+  ) {
+    toTitleOne.innerText = "The Text is:";
+    toTitleTwo.innerText = "The Binary number is:";
+    toTitleThree.innerText = "The Octal number is:";
+    toTitleFour.innerText = "The Hexadecimal number is:";
+  }
+  //
+  else if (fromList.value === "binary" && toList.value === "decimal") {
+    toTitleOne.innerText = "The Decimal number is:";
+    toTitleTwo.innerText = "The Octal number is:";
+    toTitleThree.innerText = "The Hexadecimal number is:";
+    toTitleFour.innerText = "The Roman number is:";
+  }
+  //
+  else if (fromList.value === "binary" && toList.value === "Octal") {
+    toTitleOne.innerText = "The Octal number is:";
+    toTitleTwo.innerText = "The Decimal number is:";
+    toTitleThree.innerText = "The Hexadecimal number is:";
+    toTitleFour.innerText = "The Roman number is:";
+  }
+  //
+  else if (fromList.value === "binary" && toList.value === "hexa") {
+    toTitleOne.innerText = "The Hexadecimal number is:";
+    toTitleTwo.innerText = "The Decimal number is:";
+    toTitleThree.innerText = "The Octal number is:";
+    toTitleFour.innerText = "The Roman number is:";
+  }
+  //
+  else if (fromList.value === "binary" && toList.value === "roman") {
+    toTitleOne.innerText = "The Roman number is:";
+    toTitleTwo.innerText = "The Decimal number is:";
+    toTitleThree.innerText = "The Octal number is:";
+    toTitleFour.innerText = "The Hexadecimal number is:";
+  }
+  //
+  else if (fromList.value === "binary" && toList.value === "text") {
+    toTitleOne.innerText = "The Text is:";
+    toTitleTwo.innerText = "The Decimal number is:";
+    toTitleThree.innerText = "The Octal number is:";
+    toTitleFour.innerText = "The Hexadecimal number is:";
+  }
+  //
+  else if (fromList.value === "octal" && toList.value === "decimal") {
+    toTitleOne.innerText = "The Decimal number is:";
+    toTitleTwo.innerText = "The Binary number is:";
+    toTitleThree.innerText = "The Hexadecimal number is:";
+    toTitleFour.innerText = "The Roman number is:";
+  }
+  //
+  else if (fromList.value === "octal" && toList.value === "binary") {
+    toTitleOne.innerText = "The Binary number is:";
+    toTitleTwo.innerText = "The Decimal number is:";
+    toTitleThree.innerText = "The Hexadecimal number is:";
+    toTitleFour.innerText = "The Roman number is:";
+  }
+  //
+  else if (fromList.value === "octal" && toList.value === "hexa") {
+    toTitleOne.innerText = "The Hexadecimal number is:";
+    toTitleTwo.innerText = "The Decimal number is:";
+    toTitleThree.innerText = "The Binary number is:";
+    toTitleFour.innerText = "The Roman number is:";
+  }
+  //
+  else if (fromList.value === "octal" && toList.value === "roman") {
+    toTitleOne.innerText = "The Roman number is:";
+    toTitleTwo.innerText = "The Decimal number is:";
+    toTitleThree.innerText = "The Binary number is:";
+    toTitleFour.innerText = "The Hexadecimal number is:";
+  }
+  //
+  else if (fromList.value === "octal" && toList.value === "text") {
+    toTitleOne.innerText = "The Text is:";
+    toTitleTwo.innerText = "The ASCII number is:";
+    toTitleThree.innerText = "The Binary number is:";
+    toTitleFour.innerText = "The Hexadecimal number is:";
+  }
+  //
+  else if (fromList.value === "hexa" && toList.value === "decimal") {
+    toTitleOne.innerText = "The Decimal number is:";
+    toTitleTwo.innerText = "The Binary number is:";
+    toTitleThree.innerText = "The Octal number is:";
+    toTitleFour.innerText = "The Roman number is:";
+  }
+  //
+  else if (fromList.value === "hexa" && toList.value === "binary") {
+    toTitleOne.innerText = "The Binary number is:";
+    toTitleTwo.innerText = "The Decimal number is:";
+    toTitleThree.innerText = "The Octal number is:";
+    toTitleFour.innerText = "The Roman number is:";
+  }
+  //
+  else if (fromList.value === "hexa" && toList.value === "octal") {
+    toTitleOne.innerText = "The Octal number is:";
+    toTitleTwo.innerText = "The Decimal number is:";
+    toTitleThree.innerText = "The Binary number is:";
+    toTitleFour.innerText = "The Roman number is:";
+  }
+  //
+  else if (fromList.value === "hexa" && toList.value === "roman") {
+    toTitleOne.innerText = "The Roman number is:";
+    toTitleTwo.innerText = "The Decimal number is:";
+    toTitleThree.innerText = "The Binary number is:";
+    toTitleFour.innerText = "The Octal number is:";
+  }
+  //
+  else if (fromList.value === "hexa" && toList.value === "text") {
+    toTitleOne.innerText = "The Text is:";
+    toTitleTwo.innerText = "The ASCII number is:";
+    toTitleThree.innerText = "The Binary number is:";
+    toTitleFour.innerText = "The Octal number is:";
+  }
+  //
+  else if (fromList.value === "roman" && toList.value === "decimal") {
+    toTitleOne.innerText = "The Decimal number is:";
+    toTitleTwo.innerText = "The Binary number is:";
+    toTitleThree.innerText = "The Octal number is:";
+    toTitleFour.innerText = "The Hexadecimal number is:";
+  }
+  //
+  else if (fromList.value === "roman" && toList.value === "binary") {
+    toTitleOne.innerText = "The Binary number is:";
+    toTitleTwo.innerText = "The Decimal number is:";
+    toTitleThree.innerText = "The Octal number is:";
+    toTitleFour.innerText = "The Hexadecimal number is:";
+  }
+  //
+  else if (fromList.value === "roman" && toList.value === "octal") {
+    toTitleOne.innerText = "The Octal number is:";
+    toTitleTwo.innerText = "The Decimal number is:";
+    toTitleThree.innerText = "The Binary number is:";
+    toTitleFour.innerText = "The Hexadecimal number is:";
+  }
+  //
+  else if (fromList.value === "roman" && toList.value === "hexa") {
+    toTitleOne.innerText = "The Hexadecimal number is:";
+    toTitleTwo.innerText = "The Decimal number is:";
+    toTitleThree.innerText = "The Binary number is:";
+    toTitleFour.innerText = "The Octal number is:";
+  } else if (fromList.value === "roman" && toList.value === "text") {
+    toTitleOne.innerText = "The Text is:";
+    toTitleTwo.innerText = "The ASCII number is:";
+    toTitleThree.innerText = "The Binary number is:";
+    toTitleFour.innerText = "The Octal number is:";
+  }
+  //
+  else if (
+    fromList.value === "text" &&
+    (toList.value === "decimal" || toList.value === "ascii")
+  ) {
+    toTitleOne.innerText = "The ASCII number is:";
+    toTitleTwo.innerText = "The Binary number is:";
+    toTitleThree.innerText = "The Octal number is:";
+    toTitleFour.innerText = "The Hexadecimal number is:";
+    toTitleFive.innerText = "The Roman number is:";
+  }
+  //
+  else if (fromList.value === "text" && toList.value === "binary") {
+    toTitleOne.innerText = "The Binary number is:";
+    toTitleTwo.innerText = "The ASCII number is:";
+    toTitleThree.innerText = "The Octal number is:";
+    toTitleFour.innerText = "The Hexadecimal number is:";
+    toTitleFive.innerText = "The Roman number is:";
+  }
+  //
+  else if (fromList.value === "text" && toList.value === "octal") {
+    toTitleOne.innerText = "The Octal number is:";
+    toTitleTwo.innerText = "The ASCII number is:";
+    toTitleThree.innerText = "The Binary number is:";
+    toTitleFour.innerText = "The Hexadecimal number is:";
+    toTitleFive.innerText = "The Roman number is:";
+  }
+  //
+  else if (fromList.value === "text" && toList.value === "hexa") {
+    toTitleOne.innerText = "The Hexadecimal number is:";
+    toTitleTwo.innerText = "The ASCII number is:";
+    toTitleThree.innerText = "The Binary number is:";
+    toTitleFour.innerText = "The Octal number is:";
+    toTitleFive.innerText = "The Roman number is:";
+  }
+  //
+  else if (fromList.value === "text" && toList.value === "roman") {
+    toTitleOne.innerText = "The Roman number is:";
+    toTitleTwo.innerText = "The ASCII number is:";
+    toTitleThree.innerText = "The Binary number is:";
+    toTitleFour.innerText = "The Octal number is:";
+    toTitleFive.innerText = "The Hexadecimal number is:";
+  }
+  //
+  else if (
+    (fromList.value === "ascii" && toList.value === "decimal") ||
+    (fromList.value === "decimal" && toList.value === "ascii")
+  ) {
+    toTitleOne.innerText = "ASCII and Decimal is same value";
+    toTitleTwo.innerText = "ASCII and Decimal is same value";
+    toTitleThree.innerText = "ASCII and Decimal is same value";
+    toTitleFour.innerText = "ASCII and Decimal is same value";
+  }
+  //
+  else if (
+    (fromList.value === "ascii" && toList.value === "binary") ||
+    toList.value === "octal" ||
+    toList.value === "hexa" ||
+    toList.value === "roman"
+  ) {
+    toTitleOne.innerText = "Change the option ASCII to Decimal";
+    toTitleTwo.innerText = "Change the option ASCII to Decimal";
+    toTitleThree.innerText = "Change the option ASCII to Decimal";
+    toTitleFour.innerText = "Change the option ASCII to Decimal";
+  }
+  //
+  else if (
+    fromList.value === "binary" ||
+    fromList.value === "octal" ||
+    fromList.value === "hexa" ||
+    (fromList.value === "roman" && toList.value === "ascii")
+  ) {
+    toTitleOne.innerText = "Change the option ASCII to Decimal";
+    toTitleTwo.innerText = "Change the option ASCII to Decimal";
+    toTitleThree.innerText = "Change the option ASCII to Decimal";
+    toTitleFour.innerText = "Change the option ASCII to Decimal";
+  }
+}
+
+function optionalOutputDisplay() {
+  optionalOutput.style.display = "block";
+  if (toList.value === "text") {
+    if (
+      fromList.value === "binary" ||
+      fromList.value === "octal" ||
+      fromList.value === "hexa" ||
+      fromList.value === "decimal" ||
+      fromList.value === "ascii" ||
+      fromList.value === "roman"
+    ) {
+      optionalOutput.style.display = "none";
+    }
+  }
+}
+
+function outputBoxFiveDisplay() {
+  toTitleFive.style.display = "none";
+  botOutputFive.style.display = "none";
+  if (fromList.value === "text") {
+    toTitleFive.style.display = "block";
+    botOutputFive.style.display = "block";
   }
 }
 
 fromList.addEventListener("change", () => {
   switchFromList();
+  changeToTitle();
+  optionalOutputDisplay();
+  clearInputOutputBoxes();
+  outputBoxFiveDisplay();
 });
 
 toList.addEventListener("change", () => {
   switchToList();
+  changeToTitle();
+  optionalOutputDisplay();
+  clearInputOutputBoxes();
 });
 
 // switch
@@ -103,16 +424,14 @@ switchList.addEventListener("click", () => {
     toList.value = v;
     switchFromList();
     switchToList();
+    changeToTitle();
+    optionalOutputDisplay();
+    clearInputOutputBoxes();
+    outputBoxFiveDisplay();
   }
 });
 
 //
-
-let userInput = document.querySelector("#userInput");
-let botOutput = document.querySelector("#botOutput");
-let convertTo = document.querySelector("#convertTo");
-let resetBtn = document.querySelector("#reset");
-
 // Helper functions for fractional conversions
 function decimalToFraction(value) {
   let [integerPart, fractionalPart] = value.split(".");
@@ -274,7 +593,7 @@ function textToOctal(text) {
 function textToHex(text) {
   return text
     .split("")
-    .map((char) => char.charCodeAt(0).toString(16))
+    .map((char) => char.charCodeAt(0).toString(16).toUpperCase())
     .join(" ");
 }
 
@@ -421,181 +740,313 @@ function finalOutput() {
   // decimal to binary
   if (fromList.value === "decimal" && toList.value === "binary") {
     const userOutput = parseFloat(userInput.value);
-    botOutput.value = decimalToBinary(userOutput);
+    botOutputOne.value = decimalToBinary(userOutput);
+    botOutputTwo.value = decimalToOctal(userOutput);
+    botOutputThree.value = decimalToHex(userOutput);
+    botOutputFour.value = decimalToRoman(userOutput);
   }
   // decimal to octal
   else if (fromList.value === "decimal" && toList.value === "octal") {
     const userOutput = parseFloat(userInput.value);
-    botOutput.value = decimalToOctal(userOutput);
+    botOutputOne.value = decimalToOctal(userOutput);
+    botOutputTwo.value = decimalToBinary(userOutput);
+    botOutputThree.value = decimalToHex(userOutput);
+    botOutputFour.value = decimalToRoman(userOutput);
   }
   // decimal to hexa
   else if (fromList.value === "decimal" && toList.value === "hexa") {
     const userOutput = parseFloat(userInput.value);
-    botOutput.value = decimalToHex(userOutput);
+    botOutputOne.value = decimalToHex(userOutput);
+    botOutputTwo.value = decimalToBinary(userOutput);
+    botOutputThree.value = decimalToOctal(userOutput);
+    botOutputFour.value = decimalToRoman(userOutput);
   }
   // binary to decimal
   else if (fromList.value === "binary" && toList.value === "decimal") {
     const userOutput = userInput.value;
-    botOutput.value = binaryToDecimal(userOutput);
+    botOutputOne.value = binaryToDecimal(userOutput);
+    botOutputTwo.value = binaryToOctal(userOutput);
+    botOutputThree.value = binaryToHex(userOutput);
+    botOutputFour.value = binaryToRoman(userOutput);
   }
   // binary to octal
   else if (fromList.value === "binary" && toList.value === "octal") {
     const userOutput = userInput.value;
-    botOutput.value = binaryToOctal(userOutput);
+    botOutputOne.value = binaryToOctal(userOutput);
+    botOutputTwo.value = binaryToDecimal(userOutput);
+    botOutputThree.value = binaryToHex(userOutput);
+    botOutputFour.value = binaryToRoman(userOutput);
   }
   // binary to hexa
   else if (fromList.value === "binary" && toList.value === "hexa") {
     const userOutput = userInput.value;
-    botOutput.value = binaryToHex(userOutput);
+    botOutputOne.value = binaryToHex(userOutput);
+    botOutputTwo.value = binaryToDecimal(userOutput);
+    botOutputThree.value = binaryToOctal(userOutput);
+    botOutputFour.value = binaryToRoman(userOutput);
   }
   // octal to decimal
   else if (fromList.value === "octal" && toList.value === "decimal") {
     const userOutput = userInput.value;
-    botOutput.value = octalToDecimal(userOutput);
+    botOutputOne.value = octalToDecimal(userOutput);
+    botOutputTwo.value = octalToBinary(userOutput);
+    botOutputThree.value = octalToHex(userOutput);
+    botOutputFour.value = octalToRoman(userOutput);
   }
   // octal to binary
   else if (fromList.value === "octal" && toList.value === "binary") {
     const userOutput = userInput.value;
-    botOutput.value = octalToBinary(userOutput);
+    botOutputOne.value = octalToBinary(userOutput);
+    botOutputTwo.value = octalToDecimal(userOutput);
+    botOutputThree.value = octalToHex(userOutput);
+    botOutputFour.value = octalToRoman(userOutput);
   }
   // octal to hexa
   else if (fromList.value === "octal" && toList.value === "hexa") {
     const userOutput = userInput.value;
-    botOutput.value = octalToHex(userOutput);
+    botOutputOne.value = octalToHex(userOutput);
+    botOutputTwo.value = octalToDecimal(userOutput);
+    botOutputThree.value = octalToBinary(userOutput);
+    botOutputFour.value = octalToRoman(userOutput);
   }
   // hexa to decimal
   else if (fromList.value === "hexa" && toList.value === "decimal") {
     const userOutput = userInput.value;
-    botOutput.value = hexToDecimal(userOutput);
+    botOutputOne.value = hexToDecimal(userOutput);
+    botOutputTwo.value = hexToBinary(userOutput);
+    botOutputThree.value = hexToOctal(userOutput);
+    botOutputFour.value = hexToRoman(userOutput);
   }
   // hexa to binary
   else if (fromList.value === "hexa" && toList.value === "binary") {
     const userOutput = userInput.value;
-    botOutput.value = hexToBinary(userOutput);
+    botOutputOne.value = hexToBinary(userOutput);
+    botOutputTwo.value = hexToDecimal(userOutput);
+    botOutputThree.value = hexToOctal(userOutput);
+    botOutputFour.value = hexToRoman(userOutput);
   }
   // hexa to octal
   else if (fromList.value === "hexa" && toList.value === "octal") {
     const userOutput = userInput.value;
-    botOutput.value = hexToOctal(userOutput);
+    botOutputOne.value = hexToOctal(userOutput);
+    botOutputTwo.value = hexToDecimal(userOutput);
+    botOutputThree.value = hexToBinary(userOutput);
+    botOutputFour.value = hexToRoman(userOutput);
   }
   // text to binary
   else if (fromList.value === "text" && toList.value === "binary") {
     const userOutput = userInput.value;
-    botOutput.value = textToBinary(userOutput);
+    botOutputOne.value = textToBinary(userOutput);
+    botOutputTwo.value = textToASCII(userOutput);
+    botOutputThree.value = textToOctal(userOutput);
+    botOutputFour.value = textToHex(userOutput);
+    botOutputFive.value = textToRoman(userOutput);
   }
   // text to ascii
   else if (
-    (fromList.value === "text" && toList.value === "ascii") ||
-    toList.value === "decimal"
+    fromList.value === "text" &&
+    (toList.value === "ascii" || toList.value === "decimal")
   ) {
     const userOutput = userInput.value;
-    botOutput.value = textToASCII(userOutput);
+    botOutputOne.value = textToASCII(userOutput);
+    botOutputTwo.value = textToBinary(userOutput);
+    botOutputThree.value = textToOctal(userOutput);
+    botOutputFour.value = textToHex(userOutput);
+    botOutputFive.value = textToRoman(userOutput);
   }
   // text to octal
   else if (fromList.value === "text" && toList.value === "octal") {
     const userOutput = userInput.value;
-    botOutput.value = textToOctal(userOutput);
+    botOutputOne.value = textToOctal(userOutput);
+    botOutputTwo.value = textToASCII(userOutput);
+    botOutputThree.value = textToBinary(userOutput);
+    botOutputFour.value = textToHex(userOutput);
+    botOutputFive.value = textToRoman(userOutput);
   }
   // text to hexa
   else if (fromList.value === "text" && toList.value === "hexa") {
     const userOutput = userInput.value;
-    botOutput.value = textToHex(userOutput);
+    botOutputOne.value = textToHex(userOutput);
+    botOutputTwo.value = textToASCII(userOutput);
+    botOutputThree.value = textToBinary(userOutput);
+    botOutputFour.value = textToOctal(userOutput);
+    botOutputFive.value = textToRoman(userOutput);
   }
   // binary to text
   else if (fromList.value === "binary" && toList.value === "text") {
     const userOutput = userInput.value;
-    botOutput.value = binaryToText(userOutput);
+    botOutputOne.value = binaryToText(userOutput);
   }
   // ascii to text
   else if (
-    fromList.value === "ascii" ||
-    (fromList.value === "decimal" && toList.value === "text")
+    (fromList.value === "ascii" || fromList.value === "decimal") &&
+    toList.value === "text"
   ) {
     const userOutput = userInput.value;
-    botOutput.value = asciiToText(userOutput);
+    botOutputOne.value = asciiToText(userOutput);
   }
   // octal to text
   else if (fromList.value === "octal" && toList.value === "text") {
     const userOutput = userInput.value;
-    botOutput.value = octalToText(userOutput);
+    botOutputOne.value = octalToText(userOutput);
   }
   // hexa to text
   else if (fromList.value === "hexa" && toList.value === "text") {
     const userOutput = userInput.value;
-    botOutput.value = hexToText(userOutput);
+    botOutputOne.value = hexToText(userOutput);
   }
   // roman to text
   else if (fromList.value === "roman" && toList.value === "text") {
     const userOutput = userInput.value;
-    botOutput.value = romanToText(userOutput);
+    botOutputOne.value = romanToText(userOutput);
   }
   // text to roman
   else if (fromList.value === "text" && toList.value === "roman") {
     const userOutput = userInput.value;
-    botOutput.value = textToRoman(userOutput);
+    botOutputOne.value = textToRoman(userOutput);
+    botOutputTwo.value = textToASCII(userOutput);
+    botOutputThree.value = textToBinary(userOutput);
+    botOutputFour.value = textToOctal(userOutput);
+    botOutputFive.value = textToHex(userOutput);
   }
   // decimal to roman
   else if (fromList.value === "decimal" && toList.value === "roman") {
     const userOutput = userInput.value;
-    botOutput.value = decimalToRoman(userOutput);
+    botOutputOne.value = decimalToRoman(userOutput);
+    botOutputTwo.value = decimalToBinary(userOutput);
+    botOutputThree.value = decimalToOctal(userOutput);
+    botOutputFour.value = decimalToHex(userOutput);
   }
   // roman to decimal
   else if (fromList.value === "roman" && toList.value === "decimal") {
     const userOutput = userInput.value;
-    botOutput.value = romanToDecimal(userOutput);
+    botOutputOne.value = romanToDecimal(userOutput);
+    botOutputTwo.value = romanToBinary(userOutput);
+    botOutputThree.value = romanToOctal(userOutput);
+    botOutputFour.value = romanToHex(userOutput);
   }
   // binary to roman
   else if (fromList.value === "binary" && toList.value === "roman") {
     const userOutput = userInput.value;
-    botOutput.value = binaryToRoman(userOutput);
+    botOutputOne.value = binaryToRoman(userOutput);
+    botOutputTwo.value = binaryToDecimal(userOutput);
+    botOutputThree.value = binaryToOctal(userOutput);
+    botOutputFour.value = binaryToHex(userOutput);
   }
   // roman to binary
   else if (fromList.value === "roman" && toList.value === "binary") {
     const userOutput = userInput.value;
-    botOutput.value = romanToBinary(userOutput);
+    botOutputOne.value = romanToBinary(userOutput);
+    botOutputTwo.value = romanToDecimal(userOutput);
+    botOutputThree.value = romanToOctal(userOutput);
+    botOutputFour.value = romanToHex(userOutput);
   }
   // octal to roman
   else if (fromList.value === "octal" && toList.value === "roman") {
     const userOutput = userInput.value;
-    botOutput.value = octalToRoman(userOutput);
+    botOutputOne.value = octalToRoman(userOutput);
+    botOutputTwo.value = octalToDecimal(userOutput);
+    botOutputThree.value = octalToBinary(userOutput);
+    botOutputFour.value = octalToHex(userOutput);
   }
   // roman to octal
   else if (fromList.value === "roman" && toList.value === "octal") {
     const userOutput = userInput.value;
-    botOutput.value = romanToOctal(userOutput);
+    botOutputOne.value = romanToOctal(userOutput);
+    botOutputTwo.value = romanToDecimal(userOutput);
+    botOutputThree.value = romanToBinary(userOutput);
+    botOutputFour.value = romanToHex(userOutput);
   }
-  // hexa roman
+  // hexa to roman
   else if (fromList.value === "hexa" && toList.value === "roman") {
     const userOutput = userInput.value;
-    botOutput.value = hexToRoman(userOutput);
+    botOutputOne.value = hexToRoman(userOutput);
+    botOutputTwo.value = hexToDecimal(userOutput);
+    botOutputThree.value = hexToBinary(userOutput);
+    botOutputFour.value = hexToOctal(userOutput);
   }
-  // roman hexa
+  // roman to hexa
   else if (fromList.value === "roman" && toList.value === "hexa") {
     const userOutput = userInput.value;
-    botOutput.value = romanToHex(userOutput);
+    botOutputOne.value = romanToHex(userOutput);
+    botOutputTwo.value = romanToDecimal(userOutput);
+    botOutputThree.value = romanToBinary(userOutput);
+    botOutputFour.value = romanToOctal(userOutput);
+  }
+  //
+  // decimal to ascii or ascii to decimal
+  else if (
+    (fromList.value === "decimal" && toList.value === "ascii") ||
+    (fromList.value === "ascii" && toList.value === "decimal")
+  ) {
+    const userOutput = userInput.value;
+    botOutputOne.value = userInput.value;
+    botOutputTwo.value = "Decimal and ASCII is the same value";
   }
   //
   else {
-    botOutput.value = `Sorry! invalid input. Select the valid calculation type from above.`;
+    botOutputOne.value = `Sorry! invalid input. Select the valid calculation type from above.`;
   }
+}
+
+function errorText() {
+  if (
+    fromList.value === "decimal" ||
+    fromList.value === "binary" ||
+    fromList.value === "octal"
+  ) {
+    if (userInput.value * 2 >= 0) {
+    } else {
+      botOutputOne.value = "Invalid Input";
+      botOutputTwo.value = "Invalid Input";
+      botOutputThree.value = "Invalid Input";
+      botOutputFour.value = "Invalid Input";
+      return true;
+    }
+  }
+  if (fromList.value === "text" || fromList.value === "roman") {
+    if (userInput.value * 2 >= 0) {
+      botOutputOne.value = "Invalid Input";
+      botOutputTwo.value = "Invalid Input";
+      botOutputThree.value = "Invalid Input";
+      botOutputFour.value = "Invalid Input";
+      botOutputFive.value = "Invalid Input";
+      return true;
+    }
+  }
+  if (userInput.value === "") {
+    botOutputOne.value = "Invalid Input";
+    botOutputTwo.value = "Invalid Input";
+    botOutputThree.value = "Invalid Input";
+    botOutputFour.value = "Invalid Input";
+    return true;
+  }
+  return false;
 }
 
 // Convert button
 convertTo.addEventListener("click", () => {
-  finalOutput();
+  errorText();
+  if (errorText() === false) {
+    finalOutput();
+  }
 });
 
 // Reset button
 
 function resetEverything() {
-  userInput.value = "";
-  botOutput.value = "";
+  clearInputOutputBoxes();
   fromList.value = "selectOne";
   toList.value = "selectOne";
   switchFromList();
   switchToList();
+  outputBoxFiveDisplay();
+  optionalOutput.style.display = "block";
   fromTitle.innerText = "Select an option from above";
-  toTitle.innerText = "Select an option from above";
+  toTitleOne.innerText = "Select an option from above";
+  toTitleTwo.innerText = "Select an option from above";
+  toTitleThree.innerText = "Select an option from above";
+  toTitleFour.innerText = "Select an option from above";
 }
 
 resetBtn.addEventListener("click", () => {
