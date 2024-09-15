@@ -25,10 +25,16 @@ let t_ascii = document.querySelector(".t_ascii");
 
 // optional output last 3 output box's div
 let optionalOutput = document.querySelector("#optionalOutput");
+// optional output five
+let optionalOutputFive = document.querySelector(".optionalOutputFive");
 
 // html title of the input and output
 let fromTitle = document.querySelector("#fromTitle");
-let toTitle = document.querySelector("#toTitle");
+let toTitleOne = document.querySelector("#toTitleOne");
+let toTitleTwo = document.querySelector("#toTitleTwo");
+let toTitleThree = document.querySelector("#toTitleThree");
+let toTitleFour = document.querySelector("#toTitleFour");
+let toTitleFive = document.querySelector("#toTitleFive");
 
 // input and all output boxes
 let userInput = document.querySelector("#userInput");
@@ -63,28 +69,36 @@ function switchFromList() {
   t_roman.style.display = "block";
   t_text.style.display = "block";
   t_ascii.style.display = "block";
+  userInput.placeholder = "Enter your input here";
 
   if (fromList.value === "decimal") {
     t_decimal.style.display = "none";
     fromTitle.innerText = "Enter the Decimal number";
+    userInput.placeholder = "Enter your decimal number";
   } else if (fromList.value === "binary") {
     t_binary.style.display = "none";
     fromTitle.innerText = "Enter the Binary number";
+    userInput.placeholder = "Enter your binary number";
   } else if (fromList.value === "octal") {
     t_octal.style.display = "none";
     fromTitle.innerText = "Enter the Octal number";
+    userInput.placeholder = "Enter your octal number";
   } else if (fromList.value === "hexa") {
     t_hexa.style.display = "none";
     fromTitle.innerText = "Enter the Hexadecimal number";
+    userInput.placeholder = "Enter your hexadecimal number";
   } else if (fromList.value === "roman") {
     t_roman.style.display = "none";
     fromTitle.innerText = "Enter the Roman number";
+    userInput.placeholder = "Enter your roman number";
   } else if (fromList.value === "text") {
     t_text.style.display = "none";
     fromTitle.innerText = "Enter the Text";
+    userInput.placeholder = "Enter your text";
   } else if (fromList.value === "ascii") {
     t_ascii.style.display = "none";
     fromTitle.innerText = "Enter the ASCII number";
+    userInput.placeholder = "Enter your ascii number";
   }
 }
 
@@ -167,7 +181,7 @@ function changeToTitle() {
     toTitleFour.innerText = "The Roman number is:";
   }
   //
-  else if (fromList.value === "binary" && toList.value === "Octal") {
+  else if (fromList.value === "binary" && toList.value === "octal") {
     toTitleOne.innerText = "The Octal number is:";
     toTitleTwo.innerText = "The Decimal number is:";
     toTitleThree.innerText = "The Hexadecimal number is:";
@@ -291,7 +305,9 @@ function changeToTitle() {
     toTitleTwo.innerText = "The Decimal number is:";
     toTitleThree.innerText = "The Binary number is:";
     toTitleFour.innerText = "The Octal number is:";
-  } else if (fromList.value === "roman" && toList.value === "text") {
+  }
+  //
+  else if (fromList.value === "roman" && toList.value === "text") {
     toTitleOne.innerText = "The Text is:";
     toTitleTwo.innerText = "The ASCII number is:";
     toTitleThree.innerText = "The Binary number is:";
@@ -352,10 +368,11 @@ function changeToTitle() {
   }
   //
   else if (
-    (fromList.value === "ascii" && toList.value === "binary") ||
-    toList.value === "octal" ||
-    toList.value === "hexa" ||
-    toList.value === "roman"
+    fromList.value === "ascii" &&
+    (toList.value === "binary" ||
+      toList.value === "octal" ||
+      toList.value === "hexa" ||
+      toList.value === "roman")
   ) {
     toTitleOne.innerText = "Change the option ASCII to Decimal";
     toTitleTwo.innerText = "Change the option ASCII to Decimal";
@@ -364,10 +381,11 @@ function changeToTitle() {
   }
   //
   else if (
-    fromList.value === "binary" ||
-    fromList.value === "octal" ||
-    fromList.value === "hexa" ||
-    (fromList.value === "roman" && toList.value === "ascii")
+    (fromList.value === "binary" ||
+      fromList.value === "octal" ||
+      fromList.value === "hexa" ||
+      fromList.value === "roman") &&
+    toList.value === "ascii"
   ) {
     toTitleOne.innerText = "Change the option ASCII to Decimal";
     toTitleTwo.innerText = "Change the option ASCII to Decimal";
@@ -393,12 +411,8 @@ function optionalOutputDisplay() {
 }
 
 function outputBoxFiveDisplay() {
-  toTitleFive.style.display = "none";
-  botOutputFive.style.display = "none";
-  if (fromList.value === "text") {
-    toTitleFive.style.display = "block";
-    botOutputFive.style.display = "block";
-  }
+  optionalOutputFive.style.display = "none";
+  if (fromList.value === "text") optionalOutputFive.style.display = "block";
 }
 
 fromList.addEventListener("change", () => {
