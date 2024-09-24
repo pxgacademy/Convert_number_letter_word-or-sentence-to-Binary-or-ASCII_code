@@ -1009,8 +1009,8 @@ function errorText() {
     fromList.value === "binary" ||
     fromList.value === "octal"
   ) {
-    if (userInput.value * 2 >= 0) {
-    } else {
+    // if (userInput.value * 2 >= 0) {
+    if (isNaN(userInput.value) && toList.value !== "text") {
       botOutputOne.value = "Invalid Input";
       botOutputTwo.value = "Invalid Input";
       botOutputThree.value = "Invalid Input";
@@ -1019,7 +1019,7 @@ function errorText() {
     }
   }
   if (fromList.value === "text" || fromList.value === "roman") {
-    if (userInput.value * 2 >= 0) {
+    if (/\d/.test(userInput.value)) {
       botOutputOne.value = "Invalid Input";
       botOutputTwo.value = "Invalid Input";
       botOutputThree.value = "Invalid Input";
